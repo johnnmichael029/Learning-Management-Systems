@@ -14,7 +14,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>student ID</th>
+                    <th>Student ID</th>
                     <th>Last Name</th>
                     <th>First Name</th>
                     <th>Email</th>
