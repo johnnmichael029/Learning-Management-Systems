@@ -12,7 +12,7 @@
     <div class="container">
         <div class="left_panel">
             <div class="tcu_logo">
-                <img src="logo/tcu.png" alt="TCY_LOGO" width="100px">
+                <img src="../logo/tcu.png" alt="TCY_LOGO" width="100px">
             </div>
             <div class="tcu_title">
                 <h1>TAGUIG CITY UNIVERSITY</h1>
@@ -21,36 +21,35 @@
         </div>
         <div class="right_panel">
             <div class="right_panel_container">
-                <div class="login">
-                    <h1>Login</h1>
-                </div>
-                <div class="email_pass">
-                    <form action="" method="POST">
+                <form action="../php/loginformsubmission.php" method="POST">
+                    <div class="login">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="email_pass">
                         <div class="login_form">
                             <div class="email">
                                 <label for="email">Email</label>
+                                <input type="text" name="email" id="email" required>
                             </div>
-                            <input type="text" name="email" id="">
                             <div class="password">
-                                <label for="passowrd">Password</label>
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" required>
                             </div>
-                            <input type="text" name="password" id="">
                         </div>
-
-                    </form>
-                </div>
-                <div class="login_btn">
-                    <button type="submit">Login</button>
-                </div>
-                <div class="forgot_pass">
-                    <h3>Forgot <span class="h3color">password?</span> </h3>
-                </div>
+                    </div>
+                    <div class="login_btn">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div class="forgot_pass">
+                        <h3>Forgot <span class="h3color">password?</span></h3>
+                    </div>
+                </form>
             </div>
+
             <div class="copyrights">
-                <span> &copy 2024 Systems fair created by: B2023</span>
+                <span>&copy; 2024 Systems Fair created by: B2023</span>
             </div>
         </div>
-
     </div>
 </body>
 
