@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Admin Panel</title>
 </head>
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="sidebar">
             <div class="sidebar-header">
-                <img src="icon/user.png" alt="user icon">
+                <img src="../icon/user.png" alt="user icon">
                 <h1>Administrator</h1>
             </div>
             <hr>
@@ -118,7 +118,6 @@
             </div>
         </div>
     </div>
-    <script src="/includes/msgonsubmit.js"></script>
     <?php
 
     if (isset($_SESSION['message']) && isset($_SESSION['status'])) {
