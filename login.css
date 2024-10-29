@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins/Poppins-Regular.ttf') format('truetype'),
+        url('Poppins/Poppins-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width: 100%;
+    height: 1000px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 1100px;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+    display: flex;
+    box-shadow: 0 0 20px rgba(31, 30, 30, 0.726);
+    border-radius: 40px;
+    background-color: #D30202;
+}
+
+/* Right Panel */
+.container .right_panel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+    border-radius: 40px;
+    background-color: #FAFAF8;
+
+}
+
+.right_panel_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.login h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.login_form input {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    outline: none;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.email,
+.password {
+    margin-bottom: 5px;
+}
+
+.email label,
+.password label {
+    font-size: 18px;
+    color: #827F7F;
+
+}
+
+.login_btn button {
+    width: 100%;
+    height: 45px;
+    font-size: 25px;
+    border: none;
+    background-color: #D30202;
+    color: #FAFAF8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.forgot_pass h3 {
+    font-size: 15px;
+    font-weight: 300;
+    color: #827F7F;
+    text-align: center;
+
+}
+
+.forgot_pass h3 .h3color {
+    color: #D30202;
+    cursor: pointer;
+}
+
+.login_btn button:hover {
+    background-color: #6D0101;
+    color: #FAFAF8;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.copyrights {
+    display: flex;
+    justify-content: end;
+}
+
+.copyrights span {
+    color: #827F7F;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+/* Left Panel */
+.container .left_panel {
+    width: 600px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #D30202;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+.tcu_logo img {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 200px rgba(255, 251, 251, 1);
+
+}
+
+.tcu_title h1 {
+    color: #FAFAF8;
+    font-size: 28px;
+    text-align: center;
+}
+
+.tcu_title h2 {
+    color: #FAFAF8;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Responsive */
+
+/* 2xl */
+@media (max-width: 1536px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+/* xl */
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1024px;
+    }
+
+    .container .right_panel {
+        padding: 70px;
+    }
+
+    .tcu_logo img {
+        width: 190px;
+    }
+
+    .tcu_title h1 {
+        font-size: 23px;
+    }
+
+    .tcu_title h2 {
+        font-size: 20px;
+    }
+
+}
+/* lg */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .tcu_logo img {
+        width: 170px;
+    }
+
+    .tcu_title h1 {
+        font-size: 20px;
+    }
+
+    .tcu_title h2 {
+        font-size: 18px;
+    }
+
+    .login h1 {
+        font-size: 30px;
+    }
+
+    .login_form label {
+        font-size: 16px;
+    }
+
+    .login_btn button {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .forgot_pass h3 {
+        font-size: 13px;
+    }
+
+    .copyrights span {
+        font-size: 12px;
+    }
+
+    .container .right_panel {
+        padding: 60px;
+    }
+}
+/* md */
+@media (max-width: 768px) {
+    .container {
+        max-width: 640px;
+    }
+
+    .tcu_logo img {
+        width: 150px;
+    }
+
+    .tcu_title h1 {
+        font-size: 18px;
+    }
+
+    .tcu_title h2 {
+        font-size: 16px;
+    }
+
+    .container .right_panel {
+        padding: 50px;
+    }
+
+    .login h1 {
+        font-size: 25px;
+    }
+
+    .login_form label {
+        font-size: 13px;
+    }
+
+    .login_btn button {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .forgot_pass h3 {
+        font-size: 11px;
+    }
+
+    .copyrights span {
+        font-size: 11px;
+    }
+
+    .container .right_panel {
+        padding: 60px;
+    }
+}
+/* sm */
+@media (max-width: 640px) {
+    .container {
+        max-width: 475px;
+    }
+
+    .tcu_logo img {
+        width: 130px;
+    }
+
+    .tcu_title h1 {
+        font-size: 16px;
+    }
+
+    .tcu_title h2 {
+        font-size: 14px;
+    }
+
+    .container .right_panel {
+        padding: 30px;
+    }
+
+    .login h1 {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .login_form label {
+        font-size: 11px;
+
+    }
+
+    .login_btn button {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .forgot_pass h3 {
+        font-size: 10px;
+    }
+
+    .copyrights span {
+        font-size: 10px;
+    }
+
+    .container .right_panel {
+        padding: 30px;
+    }
+
+    .login_form input {
+        margin-bottom: 10px;
+    }
+}
