@@ -22,15 +22,16 @@
         </div>
         <div class="right_panel">
             <div class="right_panel_container">
-                <div class="login">
-                    <h1>Login</h1>
-                </div>
-                <div class="email_pass">
-                    <form action="" method="POST">
+                <form action="../php/loginformsubmission.php" method="POST">
+                    <div class="login">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="email_pass">
                         <div class="login_form">
                             <div class="input-group">
                                 <input type="text" name="email" id="email" required placeholder="" autocomplete="off">
                                 <label for="email">Email</label>
+                                <input type="text" name="email" id="email" required>
                             </div>
                             <div class="input-group">
                                 <input type="password" name="password" id="password" required placeholder=" " autocomplete="new-password">
@@ -46,8 +47,9 @@
                     <h3>Forgot <span class="h3color">password?</span> </h3>
                 </div>
             </div>
+
             <div class="copyrights">
-                <span> &copy 2024 Systems fair created by: B2023</span>
+                <span>&copy; 2024 Systems Fair created by: B2023</span>
             </div>
         </div>
     </div>

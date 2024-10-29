@@ -19,24 +19,24 @@
             <hr>
             <div class="sidebar-body">
                 <div class="con dashboard">
-                    <img src="icon/dashboard.png" alt="dashboard icon">
+                    <img src="../icon/dashboard.png" alt="dashboard icon">
                     <a href="admin.php">Dashboard</a>
                 </div>
                 <div class="con manage-students">
-                    <img src="icon/manager.png" alt="Manage students icon">
+                    <img src="../icon/manager.png" alt="Manage students icon">
                     <a href="admin.php">Manage students</a>
                 </div>
                 <div class="con add-new-students">
-                    <img src="icon/Add new.png" alt="Add new students icon">
+                    <img src="../icon/Add new.png" alt="Add new students icon">
                     <a href="admin.php">Add new students</a>
                 </div>
                 <div class="con settings">
-                    <img src="icon/setting.png" alt="Settings icon">
+                    <img src="../icon/setting.png" alt="Settings icon">
                     <a href="admin.php">Settings</a>
                 </div>
                 <div class="con logout">
-                    <img src="icon/logout.png" alt="Logout icon">
-                    <a href="admin.php">Logout</a>
+                    <img src="../icon/logout.png" alt="Logout icon">
+                    <a href="../html/LoginForm.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
                                     }
 
                                     // Read all rows from database table
-                                    $sql = "SELECT * FROM studentTB";
+                                    $sql = "SELECT * FROM users";
                                     $result = $con->query($sql);
 
                                     if ($result && $result->num_rows > 0) {
@@ -119,6 +119,8 @@
         </div>
     </div>
     <?php
+
+                                    
 
     if (isset($_SESSION['message']) && isset($_SESSION['status'])) {
         echo "<script>

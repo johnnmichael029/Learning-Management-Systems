@@ -33,10 +33,10 @@
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
         // Prepare SQL query for inserting new student
-        $sql = "INSERT INTO studentTB (studentID, lastname, firstname, email, password) 
+        $sql = "INSERT INTO users (studentID, lastname, firstname, email, password) 
                 VALUES ('$studentID', '$lastname', '$firstname', '$email', '$password')";
 
         // Execute query
