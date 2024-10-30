@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Admin Panel</title>
 </head>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="con manage-students">
                     <img src="../icon/manager.png" alt="Manage students icon">
-                    <a href="admin.php">Manage students</a>
+                    <a href="managestudent.php">Manage students</a>
                 </div>
                 <div class="con add-new-students">
                     <img src="../icon/Add new.png" alt="Add new students icon">
@@ -36,8 +36,9 @@
                 </div>
                 <div class="con logout">
                     <img src="../icon/logout.png" alt="Logout icon">
-                    <a href="../html/LoginForm.html">Logout</a>
+                    <a href="../html/LoginForm.php">Logout</a>
                 </div>
+
             </div>
         </div>
         <div class="container-body">
@@ -104,7 +105,7 @@
 
                             <input type="text" name="lastname" placeholder="Enter student last name" required>
                             <input type="text" name="firstname" placeholder="Enter student first name" required>
-                            <input type="text" name="studentID" placeholder="Enter student ID" required>
+                            <input type="text" name="studentID" id="numberInput" placeholder="Enter student ID" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                             <input type="email" name="email" placeholder="Enter student email" required>
                             <input type="password" name="password" placeholder="Password" required>
 
@@ -118,24 +119,8 @@
             </div>
         </div>
     </div>
-    <?php
 
-                                    
 
-    if (isset($_SESSION['message']) && isset($_SESSION['status'])) {
-        echo "<script>
-                swal({
-                    title: '{$_SESSION['message']}',
-                    icon: '{$_SESSION['status']}',
-                    button: 'OK'
-
-                }).then(() => {
-                    window.location.href = 'admin.php';
-                });
-              </script>";
-        unset($_SESSION['message'], $_SESSION['status']);
-    }
-    ?>
 </body>
 
 </html>

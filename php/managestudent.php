@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/mngstudent.css">
+    <title>Manage Student</title>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                 </div>
                 <div class="con manage-students">
                     <img src="../icon/manager.png" alt="Manage students icon">
-                    <a href="admin.php">Manage students</a>
+                    <a href="#">Manage students</a>
                 </div>
                 <div class="con add-new-students">
                     <img src="../icon/Add new.png" alt="Add new students icon">

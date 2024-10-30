@@ -70,20 +70,23 @@
 
     $conn->close();
 
-    // Display error message if exists
-    if (isset($_SESSION['message']) && isset($_SESSION['status'])) {
-        echo "<script>
-                swal({
-                    title: '{$_SESSION['message']}',
-                    icon: '{$_SESSION['status']}',
-                    button: 'OK'
-                }).then(() => {
-                    // Redirect to the login page or stay on the current page
-                    window.location.href = '../html/LoginForm.html'; // Update to your login page URL
-                });
-              </script>";
-        unset($_SESSION['message'], $_SESSION['status']);
-    }
+    header("Location: ../html/LoginForm.php"); // redirect to login page
+
+    // // Display error message if exists
+    // if (isset($_SESSION['message']) && isset($_SESSION['status'])) {
+    //     echo "<script>
+    //             swal({
+    //                 title: '{$_SESSION['message']}',
+    //                 icon: '{$_SESSION['status']}',
+    //                 button: 'OK'
+    //             }).then(() => {
+    //                 // Redirect to the login page or stay on the current page
+    //                 window.location.href = '../html/LoginForm.php'; // Update to your login page URL
+    //             });
+    //           </script>";
+    //     unset($_SESSION['message'], $_SESSION['status']);
+    // }
+    // 
     ?>
 </body>
 

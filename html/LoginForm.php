@@ -1,10 +1,18 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../php/login.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert.js"></script>
     <title>Login Form</title>
 </head>
 
@@ -50,7 +58,23 @@
                 <span>&copy; 2024 Systems Fair created by: B2023</span>
             </div>
         </div>
+
     </div>
+
+    <script>
+        $(document).ready(function() {
+            <?php if (isset($_SESSION['message']) && isset($_SESSION['status'])) : ?>
+                swal({
+                    title: "<?php echo $_SESSION['message']; ?>",
+                    icon: "<?php echo $_SESSION['status']; ?>",
+                    button: "OK"
+                });
+                <?php
+                unset($_SESSION['message'], $_SESSION['status']);
+                ?>
+            <?php endif; ?>
+        });
+    </script>
 </body>
 
 </html>
