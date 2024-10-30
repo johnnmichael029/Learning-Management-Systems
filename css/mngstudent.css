@@ -1,0 +1,52 @@
+.sidebar-body .manage-students {
+    background-color: #6D0101;
+    border-radius: 8px;
+
+}
+
+.sidebar-body .dashboard {
+    background-color: #D30202;
+}
+
+.sidebar-body .dashboard:hover {
+    background-color: #6D0101;
+
+}
+
+.container-table {
+    max-height: 500px;
+    max-width: 100%;
+}
+
+tbody td a .btn {
+    border-style: none;
+    background-color: transparent;
+    color: white;
+}
+
+tbody a {
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    background-color: #D30202;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+tbody .btn-edit {
+    background-color: #2596be;
+}
+
+tbody button:hover {
+    background-color: #6D0101;
+}
+
+tbody a:hover {
+    background-color: #6D0101;
+}
+
+.table .btn-td {
+    padding: 0 10px;
+}

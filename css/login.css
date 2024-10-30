@@ -62,7 +62,7 @@ body {
 }
 
 /* Floating Label Styles */
-.input-group {
+/* .input-group {
     position: relative;
     margin-bottom: 20px;
 }
@@ -75,32 +75,8 @@ input[type="password"] {
     border: 1px solid #ccc;
     outline: none;
     padding: 10px 20px;
-    /* Adjust padding for better spacing */
     font-size: 15px;
-}
-
-label {
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    font-size: 18px;
-    color: #827F7F;
-    transition: 0.2s ease all;
-    pointer-events: none;
-    /* Prevents label from capturing clicks */
-}
-
-input:focus+label,
-input:not(:placeholder-shown)+label {
-    top: -15px;
-    /* Move label up */
-    left: 17px;
-    /* Keep label aligned */
-    font-size: 13px;
-    /* Reduce font size */
-    color: #D30202;
-    /* Change color when focused */
-}
+} */
 
 .login_form input {
     margin-bottom: 20px;

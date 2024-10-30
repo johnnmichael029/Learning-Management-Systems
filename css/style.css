@@ -111,11 +111,15 @@ body {
 
 /* Left Panel */
 .left-body {
-
     padding: 10px 30px;
     background-color: white;
     box-shadow: 0 0 20px rgba(31, 30, 30, 0.726);
     border-radius: 20px;
+}
+
+.usercount {
+    color: #D30202;
+
 }
 
 .container-table {

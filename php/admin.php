@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Admin Panel</title>
 </head>
@@ -50,6 +50,10 @@
                     <div class="left-body">
                         <div class="container-table">
                             <h1>List of Students</h1>
+                            <div class="total-users">
+                                <p>Total number of user: <span class="usercount"> <?php include 'countuser.php';
+                                                                                    echo $totalUsers; ?></span></p>
+                            </div>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -62,23 +66,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "";
-                                    $database = "studentDB";
-
-                                    // Create connection
-                                    $con = new mysqli($servername, $username, $password, $database);
-
-                                    // Check connection
-                                    if ($con->connect_error) {
-                                        die("Connection failed: " . $con->connect_error);
-                                    }
+                                    include 'connection.php';
 
                                     // Read all rows from database table
                                     $sql = "SELECT * FROM users";
-                                    $result = $con->query($sql);
-
+                                    $result = $conn->query($sql);
                                     if ($result && $result->num_rows > 0) {
                                         // Fetch data for each row
                                         while ($row = $result->fetch_assoc()) {
@@ -110,7 +102,7 @@
                             <input type="password" name="password" placeholder="Password" required>
 
 
-                            <button type="submit" name="submit" class="btn">Add Student</button>
+                            <button type="submit" name="submit" class="btn btn-primary">Add Student</button>
                         </form>
 
                     </div>
