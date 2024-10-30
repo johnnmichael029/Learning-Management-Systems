@@ -16,7 +16,6 @@
 body {
     width: 100%;
     height: 1000px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +32,9 @@ body {
     box-shadow: 0 0 20px rgba(31, 30, 30, 0.726);
     border-radius: 40px;
     background-color: #D30202;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 2s ease, transform 2s ease;
 }
 
 /* Right Panel */
@@ -45,7 +47,6 @@ body {
     padding: 100px;
     border-radius: 40px;
     background-color: #FAFAF8;
-
 }
 
 .right_panel_container {
@@ -53,7 +54,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .login h1 {
@@ -61,27 +61,54 @@ body {
     margin-bottom: 20px;
 }
 
-.login_form input {
+/* Floating Label Styles */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
     width: 100%;
     height: 45px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
     outline: none;
-    padding: 20px;
+    padding: 10px 20px;
+    /* Adjust padding for better spacing */
     font-size: 15px;
+}
+
+label {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 18px;
+    color: #827F7F;
+    transition: 0.2s ease all;
+    pointer-events: none;
+    /* Prevents label from capturing clicks */
+}
+
+input:focus+label,
+input:not(:placeholder-shown)+label {
+    top: -15px;
+    /* Move label up */
+    left: 17px;
+    /* Keep label aligned */
+    font-size: 13px;
+    /* Reduce font size */
+    color: #D30202;
+    /* Change color when focused */
+}
+
+.login_form input {
+    margin-bottom: 20px;
 }
 
 .email,
 .password {
     margin-bottom: 5px;
-}
-
-.email label,
-.password label {
-    font-size: 18px;
-    color: #827F7F;
-
 }
 
 .login_btn button {
@@ -100,7 +127,6 @@ body {
     font-weight: 300;
     color: #827F7F;
     text-align: center;
-
 }
 
 .forgot_pass h3 .h3color {
@@ -126,7 +152,6 @@ body {
     font-weight: 300;
 }
 
-
 /* Left Panel */
 .container .left_panel {
     width: 600px;
@@ -144,7 +169,6 @@ body {
     width: 200px;
     border-radius: 50%;
     box-shadow: 0 0 200px rgba(255, 251, 251, 1);
-
 }
 
 .tcu_title h1 {
