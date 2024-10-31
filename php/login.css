@@ -32,9 +32,9 @@ body {
     box-shadow: 0 0 20px rgba(31, 30, 30, 0.726);
     border-radius: 40px;
     background-color: #D30202;
-    opacity: 0;
+    /* opacity: 0;
     transform: translateY(-20px);
-    transition: opacity 2s ease, transform 2s ease;
+    transition: opacity 2s ease, transform 2s ease; */
 }
 
 /* Right Panel */
@@ -65,7 +65,7 @@ body {
 /* .input-group {
     position: relative;
     margin-bottom: 20px;
-}
+} */
 
 input[type="text"],
 input[type="password"] {
@@ -76,7 +76,7 @@ input[type="password"] {
     outline: none;
     padding: 10px 20px;
     font-size: 15px;
-} */
+}
 
 .login_form input {
     margin-bottom: 20px;

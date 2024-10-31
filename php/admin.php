@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Admin Panel</title>
 </head>
@@ -19,8 +19,10 @@
             <hr>
             <div class="sidebar-body">
                 <div class="con dashboard">
+
                     <img src="../icon/dashboard.png" alt="dashboard icon">
                     <a href="admin.php">Dashboard</a>
+
                 </div>
                 <div class="con manage-students">
                     <img src="../icon/manager.png" alt="Manage students icon">
@@ -49,19 +51,25 @@
                 <div class="content-body">
                     <div class="left-body">
                         <div class="container-table">
-                            <h1>List of Students</h1>
+                            <div class="container-header">
+
+                                <h1>List of Students</h1>
+                                <input type="text" class="search-control" id="live-search" autocomplete="off" placeholder="Search...">
+                            </div>
+
                             <div class="total-users">
-                                <p>Total number of user: <span class="usercount"> <?php include 'countuser.php';
-                                                                                    echo $totalUsers; ?></span></p>
+                                <p>Total number of Students: <span class="usercount" id="result-count"> <?php include 'countuser.php';
+                                                                                                        echo $totalUsers; ?></span></p>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Student ID</th>
+                                        <th>User ID</th>
                                         <th>Last Name</th>
                                         <th>First Name</th>
                                         <th>Email</th>
                                         <th>Password</th>
+                                        <th>role</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,11 +83,12 @@
                                         // Fetch data for each row
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>
-                                                    <td>{$row['studentID']}</td>
+                                                    <td>{$row['userID']}</td>
                                                     <td>{$row['lastname']}</td>
                                                     <td>{$row['firstname']}</td>
                                                     <td>{$row['email']}</td>
                                                     <td>{$row['password']}</td>
+                                                    <td>{$row['role']}</td>
                                                   </tr>";
                                         }
                                     } else {
@@ -97,7 +106,7 @@
 
                             <input type="text" name="lastname" placeholder="Enter student last name" required>
                             <input type="text" name="firstname" placeholder="Enter student first name" required>
-                            <input type="text" name="studentID" id="numberInput" placeholder="Enter student ID" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
                             <input type="email" name="email" placeholder="Enter student email" required>
                             <input type="password" name="password" placeholder="Password" required>
 
@@ -112,6 +121,42 @@
         </div>
     </div>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#live-search").on("keyup", function() {
+                var input = $(this).val().trim();
+
+                if (input !== "") {
+                    // Perform search when input is not empty
+                    $.ajax({
+                        url: "search.php",
+                        method: "POST",
+                        data: {
+                            input: input
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            $(".table tbody").html(response.html).show();
+                            $('#result-count').text(response.count); //update the total count
+                        }
+                    });
+                } else {
+                    // When input is empty, fetch and display original data
+                    $.ajax({
+                        url: "fetch_all_data.php", // Separate PHP file to fetch all records
+                        method: "POST",
+                        dataType: "json",
+                        success: function(response) {
+                            $(".table tbody").html(response.html).show();
+                            $('#result-count').text(response.count);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 

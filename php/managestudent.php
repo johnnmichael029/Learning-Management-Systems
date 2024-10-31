@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/mngstudent.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Admin Panel</title>
@@ -54,61 +54,103 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Student ID</th>
+                                        <th>User ID</th>
                                         <th>Last Name</th>
                                         <th>First Name</th>
                                         <th>Email</th>
                                         <th>Password</th>
+                                        <th>role</th>
                                         <th class="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <?php
-
                                     include 'connection.php';
-
-                                    // Read all rows from database table
                                     $sql = "SELECT * FROM users";
                                     $result = $conn->query($sql);
 
                                     if ($result && $result->num_rows > 0) {
-                                        // Fetch data for each row
                                         while ($row = $result->fetch_assoc()) {
+                                            $userID = $row['userID'];
+                                            $lastname = $row['lastname'];
+                                            $firstname = $row['firstname'];
+                                            $email = $row['email'];
+                                            $password = $row['password'];
+                                            $role = $row['role'];
                                             echo "<tr>
-                                                    <td>{$row['studentID']}</td>
+                                                    <td>{$row['userID']}</td>
                                                     <td>{$row['lastname']}</td>
                                                     <td>{$row['firstname']}</td>
                                                     <td>{$row['email']}</td>
                                                     <td>{$row['password']}</td>
+                                                    <td>{$row['role']}</td>
                                                     <td>
-                                                    <a href='editstudent.php?id={$row['studentID']}' class='btn btn-edit'><button type='button' class='btn btn-edit'>Edit</button></a>                                              
-                                                    <a class='btn btn-danger'><button type='button' class='btn btn-danger' onclick='confirmDelete({$row["studentID"]})'>Delete</button>
-</a>
-                                                    
+                                                       <button class='btn btn-edit' onclick='editStudent($userID, \"$lastname\", \"$firstname\", \"$email\", \"$password\")'> <a class='btn btn-edit'>Edit</button></a>
+                                                       <button class='btn btn-danger' onclick='confirmDelete($userID)'> <a class='btn btn-danger'>Delete</a> </button>
                                                     </td>
-                                                    
                                                   </tr>";
                                         }
                                     } else {
                                         echo "<tr><td colspan='5'>No students found.</td></tr>";
                                     }
+
+
+
+
                                     ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- SweetAlert Edit Form JavaScript -->
     <script>
-        function confirmDelete(studentID) {
+        // function editStudent(studentID, lastname, firstname, email, password) {
+        //     Swal.fire({
+        //         title: 'Edit Student',
+        //         html: `
+        //              <input type="text" id="edit-studentID" class="swal2-input" placeholder="Student ID" required>
+        //             <input type="text" id="edit-lastname" class="swal2-input" placeholder="Last name" required>
+        //              <input type="text" id="edit-firstname" class="swal2-input" placeholder="First name" required>
+        //              <input type="email" id="edit-email" class="swal2-input" placeholder="Email" required>
+        //              <input type="password" id="edit-password" class="swal2-input" placeholder="Password" required>
+        //          `,
+        //         showCancelButton: true,
+        //         confirmButtonText: 'Save',
+        //         preConfirm: () => {
+        //             return {
+        //                 studentID: document.getElementById('edit-studentID').value,
+        //                 lastname: document.getElementById('edit-lastname').value,
+        //                 firstname: document.getElementById('edit-firstname').value,
+        //                 email: document.getElementById('edit-email').value,
+        //                 password: document.getElementById('edit-password').value
+        //             }
+        //         }
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             const formData = result.value;
+        //             $.ajax({
+
+        //                 url: 'editstudent.php',
+        //                 type: 'POST',
+        //                 data: data,
+        //                 success: function(response) {
+        //                     Swal.fire('Updated!', 'Student record has been updated.', 'success')
+        //                         .then(() => location.reload()); // Reload page after update
+        //                 },
+        //                 error: function() {
+        //                     Swal.fire('Error', 'Failed to update student record.', 'error');
+        //                 }
+        //             });
+        //         }
+        //     });
+        // }
+
+        function confirmDelete(userID) {
             Swal.fire({
                 title: 'Are you sure you want to delete this record?',
                 text: "You won't be able to revert this!",
@@ -120,13 +162,11 @@
                 cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = `deletestudent.php?studentID=${studentID}`;
+                    window.location.href = `deletestudent.php?userID=${userID}`;
                 }
             });
         }
     </script>
-
-
 </body>
 
 </html>

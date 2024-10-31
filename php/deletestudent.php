@@ -3,10 +3,11 @@
 session_start();
 include "connection.php";
 
-if (isset($_GET['studentID'])) {
-    $id = $_GET['studentID'];
-    $sql = "DELETE FROM users WHERE studentID = $id";
+if (isset($_GET['userID'])) {
+    $id = $_GET['userID'];
+    $sql = "DELETE FROM users WHERE userID = $id";
     $result = mysqli_query($conn, $sql);
 }
 header("Location: managestudent.php");
 ?>
+

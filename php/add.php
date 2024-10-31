@@ -21,35 +21,34 @@
     include 'admin.php';
 
     // Initialize variables
-    $studentID = $firstname = $lastname = $email = $password = "";
+    $firstname = $lastname = $email = $password = "";
     $errorMessage = "";
 
     include 'connection.php';
 
     // Check for POST request
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $studentID = $_POST["studentID"];
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
         $email = $_POST["email"];
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-        // Check if the studentID and email already exist
-        $sql = "SELECT * FROM users WHERE studentID = ? OR email = ?";
+        // Check if the email already exist
+        $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $studentID, $email);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            $_SESSION['message'] = "Student ID or email already exists.";
+            $_SESSION['message'] = "Email already exists.";
             $_SESSION['status'] = "error";
         } else {
             // Prepare SQL query for inserting new student
-            $sql = "INSERT INTO users (studentID, lastname, firstname, email, password) 
-                    VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO users ( lastname, firstname, email, password) 
+                    VALUES ( ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssss", $studentID, $lastname, $firstname, $email, $password);
+            $stmt->bind_param("ssss", $lastname, $firstname, $email, $password);
 
             // Execute query
             if ($stmt->execute()) {
